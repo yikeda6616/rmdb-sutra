@@ -6,6 +6,8 @@ import { Movie } from './Movie';
 import { NotFound } from './NotFound';
 import { Header } from './elements/Header';
 
+import { GlobalStyle } from './styles/GlobalStyle';
+
 const App: React.FC = () => (
   <Router>
     <Header></Header>
@@ -20,6 +22,7 @@ const App: React.FC = () => (
         <NotFound />
       </Route>
     </Switch>
+    <GlobalStyle />
   </Router>
 );
 
