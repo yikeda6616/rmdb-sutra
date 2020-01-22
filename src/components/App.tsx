@@ -1,19 +1,26 @@
 import React from 'react';
-import { Router } from '@reach/router';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import { Home } from './Home';
 import { Movie } from './Movie';
 import { NotFound } from './NotFound';
 import { Header } from './elements/Header';
 
 const App: React.FC = () => (
-  <>
+  <Router>
     <Header></Header>
-    <Router>
-      <Home path="/" />
-      <Movie path="/:movieId" />
-      <NotFound default />
-    </Router>
-  </>
+    <Switch>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/:movieId">
+        <Movie />
+      </Route>
+      <Route default>
+        <NotFound />
+      </Route>
+    </Switch>
+  </Router>
 );
 
 export default App;
