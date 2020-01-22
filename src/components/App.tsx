@@ -10,19 +10,15 @@ import { GlobalStyle } from './styles/GlobalStyle';
 
 const App: React.FC = () => (
   <Router>
-    <Header></Header>
-    <Switch>
-      <Route path="/">
-        <Home />
-      </Route>
-      <Route path="/:movieId">
-        <Movie />
-      </Route>
-      <Route default>
-        <NotFound />
-      </Route>
-    </Switch>
-    <GlobalStyle />
+    <>
+      <Header></Header>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/:movieId" component={Movie} exact />
+        <Route component={NotFound} />
+      </Switch>
+      <GlobalStyle />
+    </>
   </Router>
 );
 
